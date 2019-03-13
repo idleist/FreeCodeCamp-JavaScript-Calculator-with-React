@@ -1,0 +1,41 @@
+#calcBody{
+  background-color: #999;
+  padding: 20px;
+}
+
+#screen{
+  margin-bottom: 10px;
+  border: 1px solid black;
+  background-color: white;
+  text-align: right;
+  font-size: 1.5em;
+}
+
+#buttons{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2px;
+  
+}
+
+.calcButton{
+  width: 4em;
+  height: 4em;
+  font-size: 1em;
+}
+
+.operator{
+  color: blue;
+}
+
+.equals{
+  color: white;
+  background-color: lightblue;
+  outline: none;
+  grid-area: 2 / 4 / 6 / 5;
+  height: 100%;
+}
+
+.decimal{
+  color: green;
+}
