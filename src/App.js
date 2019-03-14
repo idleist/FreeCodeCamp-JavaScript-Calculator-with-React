@@ -6,34 +6,51 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      display: 0
+      display: 0,
+      operatorDisplayed: false,
+      decimalDisplayed: false
     }
   }
   
   buttonPress = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-
-    if(e.target.value === 'AC'){
-      this.clearCalculator();
-    } else{
-      this.displayNumber(e);
-    } 
+    let key = e.target.value;
+    
+    if(key === 'AC'){
+      return this.clearCalculator();
+    }
+    if(key === '='){
+      return this.equateSum();
+    }     
+    if(key === '0'|'1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9'){
+      return this.displayNumber(e);
+    }
+    if(key === '&#x2b;' || '&minus;' || '&times;' || '&divide;'){
+      console.log(key);
+      return;
+    }
+    if(key === '.'){
+      this.setState({display: 0});
+    }
   }
   
+  
   clearCalculator = () => {
+    console.log('clicked');
     this.setState({display: 0});
   }
 
   displayNumber = (e) => {
-    if(this.state.display === 0 && e.target.value !== '0'){
-      this.setState({display: e.target.value});
-    } else if(this.state.display === 0 && e.target.value === '0'){
-      this.setState({display: 0});
+    if(e.target.value === '0'){
+      this.setState({display: this.state.display === 0 ? 0 : this.state.display + e.target.value});
     } else {
-      this.setState({display: this.state.display + e.target.value});
-    }
-    
+      this.setState({display: this.state.display === 0 ? e.target.value : this.state.display + e.target.value});
+    }  
+  } 
+      
+
+  equateSum = () => {
+    let sum = this.state.display;
+    console.log(sum);
   }
 
   render() {
