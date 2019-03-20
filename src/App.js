@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Button from './components/Button';
+import Calculator from "./images/calculator.svg";
 
 // using math.js as an alternative to native eval function
 const math = require('mathjs');
@@ -67,29 +68,30 @@ class App extends Component {
   render() {
     return (
       <div id='calcBody'>
+        <img id ='calcImage' src={Calculator} alt='little professor calculator'/>
         <div id='screen'>
-          {/* <div id='currentSum'>000</div> */}
           <div id = 'display'>{this.state.display}</div>
         </div>
         <div id='buttons'>
-          <Button buttonPress = {this.displayOperator}idName='add' buttonName='+' />
-          <Button buttonPress = {this.displayOperator}idName='subtract' buttonName='-' />
-          <Button buttonPress = {this.displayOperator}idName='multiply' buttonName = '*'/>
-          <Button buttonPress = {this.displayOperator}idName='divide' buttonName='/' />
-          <Button buttonPress = {this.displayNumber} idName='one' buttonName='1' />
-          <Button buttonPress = {this.displayNumber} idName='two' buttonName='2' />
-          <Button buttonPress = {this.displayNumber} idName='three' buttonName='3' />
-          <Button buttonPress = {this.displayNumber} idName='four' buttonName='4' />
-          <Button buttonPress = {this.displayNumber} idName='five' buttonName='5' />
-          <Button buttonPress = {this.displayNumber} idName='six' buttonName='6' />
-          <Button buttonPress = {this.displayNumber} idName='seven' buttonName='7' />
-          <Button buttonPress = {this.displayNumber} idName='eight' buttonName='8' />
-          <Button buttonPress = {this.displayNumber} idName='nine' buttonName='9' />
-          <Button buttonPress = {this.displayNumber} idName='zero' buttonName='0' />
-          <Button buttonPress = {this.displayDecimal} idName='decimal' buttonName='.' />
-          <Button buttonPress = {this.clearCalculator} idName='clear' buttonName='AC' />
-          <Button buttonPress = {this.equateSum} idName='equals' buttonName='=' /> 
+          <Button buttonDisplay = '1' buttonPress = {this.displayNumber} idName='one' buttonName='1' />
+          <Button buttonDisplay = '2' buttonPress = {this.displayNumber} idName='two' buttonName='2' />
+          <Button buttonDisplay = '3' buttonPress = {this.displayNumber} idName='three' buttonName='3' />
+          <Button buttonDisplay = '&divide;' buttonPress = {this.displayOperator}idName='divide' buttonName='/' />
+          <Button buttonDisplay = '4' buttonPress = {this.displayNumber} idName='four' buttonName='4' />
+          <Button buttonDisplay = '5' buttonPress = {this.displayNumber} idName='five' buttonName='5' />
+          <Button buttonDisplay = '6' buttonPress = {this.displayNumber} idName='six' buttonName='6' />
+          <Button buttonDisplay = '&times;' buttonPress = {this.displayOperator}idName='multiply' buttonName = '*'/>
+          <Button buttonDisplay = '7' buttonPress = {this.displayNumber} idName='seven' buttonName='7' />
+          <Button buttonDisplay = '8' buttonPress = {this.displayNumber} idName='eight' buttonName='8' />
+          <Button buttonDisplay = '9' buttonPress = {this.displayNumber} idName='nine' buttonName='9' />
+          <Button buttonDisplay = '&minus;' buttonPress = {this.displayOperator}idName='subtract' buttonName='-' />
+          <Button buttonDisplay = '.' buttonPress = {this.displayDecimal} idName='decimal' buttonName='.' />
+          <Button buttonDisplay = '0' buttonPress = {this.displayNumber} idName='zero' buttonName='0' />
+          <Button buttonDisplay = 'AC' buttonPress = {this.clearCalculator} idName='clear' buttonName='AC' />
+          <Button buttonDisplay = '&#x2b;' buttonPress = {this.displayOperator}idName='add' buttonName='+' />
+          <Button buttonDisplay = '&#x3d;' buttonPress = {this.equateSum} idName='equals' buttonName='=' /> 
         </div>
+        <p className='professor'>"LITTLE PROFESSOR"</p>
       </div>
     );
   }
